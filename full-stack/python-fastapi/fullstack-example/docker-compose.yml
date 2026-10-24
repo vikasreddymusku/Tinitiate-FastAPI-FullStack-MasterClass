@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: fastapi
+      POSTGRES_PASSWORD: local_dev_change_me
+      POSTGRES_DB: fastapi_lab
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fastapi -d fastapi_lab"]
+      interval: 5s
+      timeout: 3s
+      retries: 8
+    volumes:
+      - fastapi_pgdata:/var/lib/postgresql/data
+  api:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      ENVIRONMENT: development
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env or shell}
+      DATABASE_URL: postgresql+psycopg://fastapi:local_dev_change_me@postgres:5432/fastapi_lab
+      FRONTEND_ORIGINS: http://localhost:5173
+    depends_on:
+      postgres:
+        condition: service_healthy
+  frontend:
+    build: ./frontend
+    ports: ["5173:5173"]
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on: [api]
+volumes:
+  fastapi_pgdata:
