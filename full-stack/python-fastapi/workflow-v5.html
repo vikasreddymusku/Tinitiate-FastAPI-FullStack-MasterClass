@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FastAPI Workflow V5: inside the bank, the store, and the restaurant. See requests being created, validated, authenticated, routed, and persisted in live data views.">
+  <title>00 · FastAPI Workflow V5 | Inside Real Systems</title>
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <link rel="stylesheet" href="../../assets/css/master-global-layout.css">
+  <link rel="stylesheet" href="assets/css/workflow-v5.css">
+</head>
+<body class="theme-dark v5-body">
+  <header class="master-top-nav">
+    <div class="master-top-nav-inner">
+      <a href="../../index.html" class="master-brand-wrap" aria-label="Tinitiate MasterClass Academy">
+        <img src="../../tinitiate_header-banner.png" alt="Tinitiate Logo" class="master-brand-logo">
+        <span class="master-brand-badge">FastAPI V5</span>
+      </a>
+      <nav class="master-menu-links">
+        <a href="index.html" class="master-nav-btn"><span>Subject Home</span></a>
+        <a href="workflow.html" class="master-nav-btn"><span>V1</span></a>
+        <a href="workflow-v2.html" class="master-nav-btn"><span>V2</span></a>
+        <a href="workflow-v3.html" class="master-nav-btn"><span>V3</span></a>
+        <a href="workflow-v4.html" class="master-nav-btn"><span>V4</span></a>
+        <a href="workflow-v5.html" class="master-nav-btn active"><span>V5</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="v5-page">
+    <section class="v5-hero">
+      <div>
+        <p class="eyebrow">FASTAPI FULL STACK MASTERCLASS · V5</p>
+        <h1>Inside the <span id="heroOrgName">Bank</span></h1>
+        <p id="heroSummary" class="hero-summary">See how a real request is created, why it exists, where it goes, and what each internal system does before the result goes back.</p>
+      </div>
+      <div class="hero-pills">
+        <span class="pill">Dynamic request journey</span>
+        <span class="pill">Live data changes</span>
+        <span class="pill">Org point of view</span>
+      </div>
+    </section>
+
+    <section class="scenario-switcher card">
+      <div class="switcher-copy">
+        <div class="eyebrow">CHOOSE A WORLD</div>
+        <h2>Learn from the organization’s point of view</h2>
+        <p>Customer actions still start the story, but the main explanation now happens <strong>inside the bank, inside the store, and inside the restaurant</strong>.</p>
+      </div>
+      <div class="switcher-buttons" id="scenarioButtons"></div>
+    </section>
+
+    <section class="workspace-grid">
+      <div class="left-column">
+        <div class="card customer-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">01 · REQUEST CREATION</p>
+              <h3 id="customerTitle">Customer Action</h3>
+            </div>
+            <span class="status-pill" id="runStatus">READY</span>
+          </div>
+          <div class="customer-layout">
+            <div class="phone-shell">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" id="phoneScreen"></div>
+            </div>
+            <div class="request-creation card soft-card">
+              <h4>Why is this request created?</h4>
+              <div class="request-why-grid">
+                <div><span class="label">Action</span><p id="whyAction"></p></div>
+                <div><span class="label">Request</span><p id="whyRequest"></p></div>
+                <div><span class="label">Why this API?</span><p id="whyApi"></p></div>
+                <div><span class="label">Where it goes</span><p id="whyDestination"></p></div>
+              </div>
+              <div class="control-row">
+                <button class="primary-btn" id="playBtn">Run Journey</button>
+                <button class="ghost-btn" id="resetBtn">Reset</button>
+                <button class="ghost-btn" id="prevBtn">◀</button>
+                <button class="ghost-btn" id="nextBtn">▶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card stage-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">02 · INSIDE THE ORGANIZATION</p>
+              <h3 id="stageTitle">What happens to the request?</h3>
+            </div>
+            <span class="tech-pills"><span class="tech-pill fastapi">FastAPI</span><span class="tech-pill python">Python</span></span>
+          </div>
+          <div class="pipeline-wrap">
+            <div class="pipeline-line" id="pipelineLine"></div>
+            <div class="request-orb" id="requestOrb">REQ</div>
+            <div class="steps-row" id="stepsRow"></div>
+          </div>
+          <div class="stage-detail-grid">
+            <div class="active-machine card soft-card">
+              <div class="detail-head">
+                <div>
+                  <p class="eyebrow">ACTIVE MACHINE</p>
+                  <h4 id="machineTitle">Start here</h4>
+                </div>
+                <span class="mini-status" id="machineStatus">Ready</span>
+              </div>
+              <div class="machine-visual" id="machineVisual">
+                <div class="machine-core"><span id="machineCoreText">Tap “Run Journey”</span></div>
+                <div class="machine-lane"><span id="machineIncoming">Incoming request</span><span class="lane-arrow">→</span><span id="machineOutgoing">Next system</span></div>
+              </div>
+              <ol class="substep-list" id="substepList"></ol>
+            </div>
+            <div class="narration-panel card soft-card">
+              <div class="detail-head">
+                <div>
+                  <p class="eyebrow">WHAT THIS STEP DOES</p>
+                  <h4 id="simpleTitle">Simple explanation</h4>
+                </div>
+              </div>
+              <p id="simpleExplanation" class="narrative"></p>
+              <div class="two-up">
+                <div>
+                  <span class="label">Why this matters</span>
+                  <p id="whyThisMatters"></p>
+                </div>
+                <div>
+                  <span class="label">What can fail here</span>
+                  <p id="failureModes"></p>
+                </div>
+              </div>
+              <div class="request-inspector">
+                <div class="inspector-tabs">
+                  <button class="tab-btn active">Request</button>
+                  <button class="tab-btn">Route</button>
+                  <button class="tab-btn">Auth</button>
+                </div>
+                <pre id="requestJson" class="code-block small-code"></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="card data-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">03 · LIVE DATA EXPLORER</p>
+              <h3 id="dataTitle">What changes in the data?</h3>
+            </div>
+            <div class="snapshot-switch">
+              <button data-view="before" class="snapshot-btn active">Before</button>
+              <button data-view="during" class="snapshot-btn">During</button>
+              <button data-view="after" class="snapshot-btn">After</button>
+            </div>
+          </div>
+          <div id="tablesArea" class="tables-area"></div>
+        </div>
+
+        <div class="card dev-card">
+          <div class="dev-top-grid">
+            <div class="code-panel soft-card card">
+              <div class="detail-head compact-head">
+                <div>
+                  <p class="eyebrow">FASTAPI CODE</p>
+                  <h4 id="codeTitle">Endpoint and service code</h4>
+                </div>
+              </div>
+              <pre id="codePanel" class="code-block"></pre>
+            </div>
+            <div class="log-panel soft-card card">
+              <div class="detail-head compact-head">
+                <div>
+                  <p class="eyebrow">LIVE LOGS</p>
+                  <h4>What the team would see</h4>
+                </div>
+              </div>
+              <div class="logs-box" id="logsBox"></div>
+            </div>
+          </div>
+          <div class="teaching-grid">
+            <div class="teach-card">
+              <h4>Why this HTTP method?</h4>
+              <p id="methodWhy"></p>
+            </div>
+            <div class="teach-card">
+              <h4>Why authentication?</h4>
+              <p id="authWhy"></p>
+            </div>
+            <div class="teach-card">
+              <h4>What validation checks?</h4>
+              <ul id="validationList" class="bullets"></ul>
+            </div>
+            <div class="teach-card">
+              <h4>Result comparison</h4>
+              <div class="compare-boxes">
+                <div class="compare success"><strong>Success</strong><p id="successSummary"></p></div>
+                <div class="compare failure"><strong>Failure</strong><p id="failureSummary"></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/workflow-v5.js"></script>
+</body>
+</html>

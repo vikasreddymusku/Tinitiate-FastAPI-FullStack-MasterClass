@@ -34,3 +34,21 @@ Open `full-stack/python-fastapi/index.html` in a local web server. The original 
 **Full index:** `full-stack/python-fastapi/FASTAPI_COURSE_COVERAGE.md`.
 
 Note: visual labs simulate system behavior and do not cryptographically sign tokens or run SQL. The separate reference application executes genuine FastAPI and SQLAlchemy operations.
+
+## NEW — Topic 00: How Python FastAPI Works
+
+The recommended beginner entry point is now **`full-stack/python-fastapi/workflow.html`**. This explanation-first module contains an animated full-stack request journey and interactive banking, shopping and delivery labs. It is linked from the FastAPI course homepage and the existing Topic 01 Routing lesson. See `full-stack/python-fastapi/TOPIC_00_WORKFLOW_GUIDE.md` for details.
+
+To view the training website: open PowerShell in the folder containing this README, run `python -m http.server 8008`, then browse to `http://localhost:8008/full-stack/python-fastapi/workflow.html`.
+
+To run the separate real FastAPI example, see `full-stack/python-fastapi/workflow-example/README.md`. Browser simulations and runnable examples are intentionally separate.
+
+
+### Compare Topic 00 V1 and V2
+
+- **Original V1** (unchanged): `full-stack/python-fastapi/workflow.html`
+- **Cinematic V2** (new): `full-stack/python-fastapi/workflow-v2.html`
+
+Start the site from this project root using `python -m http.server 8008`. Open
+`http://localhost:8008/full-stack/python-fastapi/workflow-v2.html`.
+See `full-stack/python-fastapi/TOPIC_00_V2_CINEMATIC_GUIDE.md` for controls and limitations.

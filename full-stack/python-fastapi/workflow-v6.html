@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastAPI Workflow V6 — Exact Visual Studio</title>
+  <link rel="icon" href="favicon.png" />
+  <link rel="stylesheet" href="../../assets/css/master-global-layout.css" />
+  <link rel="stylesheet" href="assets/css/workflow-v6.css" />
+  <link rel="stylesheet" href="assets/css/workflow-v6-live.css" />
+</head>
+<body class="workflow-v6-body workflow-v6">
+  <header class="master-top-nav">
+    <div class="master-top-nav-inner">
+      <a href="index.html" class="master-brand-wrap">
+        <img src="tinitiate_header-banner.png" alt="Tinitiate" class="master-brand-logo" />
+        <span class="master-brand-badge">FastAPI Full Stack MasterClass</span>
+      </a>
+      <nav>
+        <ul class="master-menu-links">
+          <li><a class="master-nav-btn" href="index.html">Home</a></li>
+          <li><a class="master-nav-btn" href="learn.html">Learn</a></li>
+          <li><a class="master-nav-btn" href="demo.html">Code Lab</a></li>
+          <li><a class="master-nav-btn active" href="workflow-v6.html">Workflow V6</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="v6-page">
+    <div class="v6-switch">
+      <button class="v6-switch-btn active" data-scene="bank-same">Bank · Same Bank</button>
+      <button class="v6-switch-btn" data-scene="bank-other">Bank · Other Bank</button>
+      <button class="v6-switch-btn" data-scene="store">Shopping Mall / Store</button>
+      <button class="v6-switch-btn" data-scene="restaurant">Restaurant / Ordering</button>
+    </div>
+
+    <!-- SAME BANK -->
+    <section class="v6-scene active" id="scene-bank-same">
+      <div class="v6-card v6-header">
+        <div class="v6-topline">
+          <div class="v6-title-wrap">
+            <div class="v6-logo-bank"></div>
+            <div>
+              <h1 class="v6-scene-title">V6 — Inside Nova Bank</h1>
+              <p class="v6-scene-subtitle">Follow a ₹500 transfer inside the bank. See how a simple request becomes safe, validated and recorded across our systems.</p>
+            </div>
+          </div>
+          <div class="v6-pills">
+            <div class="v6-pill green">BANK VIEW</div>
+            <div class="v6-pill outline">See how our systems process a request</div>
+            <div class="v6-pill">SAME-BANK TRANSFER<br><span style="font-size:12px;color:#a8d2e9;font-weight:700">Anita → Rahul (₹500)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v6-grid-main">
+        <aside class="v6-card v6-left-phone">
+          <div class="v6-section-head">Customer taps <strong>Send Money</strong></div>
+          <div class="v6-phone">
+            <div class="v6-phone-screen">
+              <div class="v6-mini-status"><span>9:41</span><span>◉ ◉ ◉</span></div>
+              <div class="v6-app-brand"><span style="font-size:20px;color:#53c2ff">N</span> NOVA BANK</div>
+              <h2 style="margin:0;font-size:18px">Send Money</h2>
+              <div class="v6-avatar-row"><div class="v6-avatar">👨</div><div><strong>Rahul</strong><div class="v6-small-muted">rahul@novabank</div></div></div>
+              <div class="v6-field-card"><div class="v6-field-title">Amount</div><div class="v6-amount">₹500</div></div>
+              <div class="v6-field-card"><div class="v6-field-title">From</div><div class="v6-avatar-row" style="padding:8px;margin-top:6px"><div class="v6-avatar" style="width:38px;height:38px;font-size:18px">👩</div><div><strong>Anita</strong><div class="v6-small-muted">Savings Account · •••• 4321</div></div><div style="margin-left:auto;font-weight:900">₹2,000</div></div></div>
+              <div class="v6-send-btn">✈ Send Money</div>
+            </div>
+          </div>
+          <div class="v6-rocket">✈</div>
+          <div class="v6-api-label">A secure HTTPS request<br><small>is sent to Nova Bank.</small></div>
+        </aside>
+
+        <div class="v6-card v6-main-stage">
+          <div class="v6-machines">
+            <div class="v6-machine machine-web"><div class="v6-machine-num">2</div><div class="v6-machine-icon">🌐</div><div class="v6-machine-title">Web Server</div><div class="v6-machine-desc">Receives HTTPS request, terminates TLS</div></div>
+            <div class="v6-machine"><div class="v6-machine-num">3</div><div class="v6-machine-icon">⚙️</div><div class="v6-machine-title">Middleware</div><div class="v6-machine-desc">Parses request, adds context</div></div>
+            <div class="v6-machine"><div class="v6-machine-num">4</div><div class="v6-machine-icon">🧭</div><div class="v6-machine-title">Router</div><div class="v6-machine-desc">Routes to transfer endpoint</div></div>
+            <div class="v6-machine machine-validate"><div class="v6-machine-num">5</div><div class="v6-machine-icon">✅</div><div class="v6-machine-title">Validation</div><div class="v6-machine-desc">Validates input, business rules</div></div>
+            <div class="v6-machine machine-auth"><div class="v6-machine-num">6</div><div class="v6-machine-icon">👤</div><div class="v6-machine-title">Identity</div><div class="v6-machine-desc">Authenticates user, checks permissions</div></div>
+            <div class="v6-machine machine-rules"><div class="v6-machine-num">7</div><div class="v6-machine-icon" title="Python programming language"><img class="v6-python-logo" src="assets/img/python-mark.svg" alt="Official Python logo" onerror="this.replaceWith(document.createTextNode('PY'))" /></div><div class="v6-machine-title">Python Rules</div><div class="v6-machine-desc">Runs transfer logic in Python (FastAPI)</div></div>
+            <div class="v6-machine machine-db"><div class="v6-machine-num">8</div><div class="v6-machine-icon">🗄️</div><div class="v6-machine-title">Data + Services</div><div class="v6-machine-desc">Updates database, writes ledger, events</div></div>
+          </div>
+
+          <div class="v6-inner-card v6-db-block">
+            <div class="v6-db-head">
+              <div>
+                <div class="v6-db-title">LIVE DATABASE EXPLORER</div>
+                <div class="v6-small-muted">Watch how the data changes inside Nova Bank</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                <span class="v6-live-pill">● LIVE</span>
+                <div class="v6-view-tabs" data-view-group="samebank">
+                  <button class="v6-view-tab" data-view="before">Before Transfer</button>
+                  <button class="v6-view-tab active" data-view="during">During Transfer</button>
+                  <button class="v6-view-tab" data-view="after">After Transfer</button>
+                </div>
+              </div>
+            </div>
+            <div class="v6-db-grid">
+              <div class="v6-dbtables-left">
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Accounts Table <small>(core.accounts)</small></div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table">
+                      <thead><tr><th>account_id</th><th>customer_name</th><th>balance</th><th>status</th></tr></thead>
+                      <tbody id="samebank-accounts"></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="v6-flow-split"><span class="v6-chip-neg">Debit ₹500</span><span>Sender account decreases</span><span class="v6-chip-pos">Credit ₹500</span></div>
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Updated Account Balances</div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table">
+                      <thead><tr><th>account_id</th><th>customer_name</th><th>balance</th><th>status</th></tr></thead>
+                      <tbody id="samebank-updated"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="v6-dbtables-right">
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Transactions Table <small>(core.transactions)</small></div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table">
+                      <thead><tr><th>txn_id</th><th>from_acct</th><th>to_acct</th><th>amount</th><th>status</th><th>created_at</th></tr></thead>
+                      <tbody id="samebank-transactions"></tbody>
+                    </table>
+                  </div>
+                  <div class="v6-small-muted" style="padding:10px 4px 0">A new transaction record is created and marked SUCCESS after all checks pass.</div>
+                </div>
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Ledger Entries Table <small>(core.ledger_entries)</small></div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table">
+                      <thead><tr><th>entry_id</th><th>txn_id</th><th>account_id</th><th>type</th><th>amount</th><th>balance_after</th><th>created_at</th></tr></thead>
+                      <tbody id="samebank-ledger"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="v6-bank-bottom">
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">⚡</span> Why POST?</div><div class="v6-tile-body">We use POST because the transfer creates a new resource (a transaction) and changes data on the server. It’s not a read; it’s an action with side effects.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🛡️</span> Why authentication?</div><div class="v6-tile-body">We must verify it’s really Anita, check her permissions, and ensure she can access the account. This protects customer data and prevents fraud.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">✅</span> What validation checks?</div><div class="v6-tile-body"><ul><li>Amount is positive and within limits</li><li>Sender has sufficient balance</li><li>Both accounts exist and are in the same bank</li><li>Account is active and not restricted</li><li>Fraud and risk checks (velocity, block lists, etc.)</li></ul></div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🗂️</span> How the DB rows change?</div><div class="v6-tile-body"><ul><li>A new transaction row is created (PROCESSING → SUCCESS)</li><li>Sender’s account balance is debited (₹2,000 → ₹1,500)</li><li>Receiver’s account balance is credited (₹700 → ₹1,200)</li><li>Two ledger entries are written (one DEBIT, one CREDIT)</li></ul></div></div>
+          </div>
+
+          <div class="v6-inner-card v6-request-timeline">
+            <div class="v6-play-btn">▶</div>
+            <div class="v6-timeline-steps">
+              <div class="v6-time-step"><div class="num">1</div><b>Send Request</b><span>00.0s</span></div>
+              <div class="v6-time-step"><div class="num">2</div><b>Web Server</b><span>00.1s</span></div>
+              <div class="v6-time-step"><div class="num">3</div><b>Middleware</b><span>00.2s</span></div>
+              <div class="v6-time-step"><div class="num">4</div><b>Route</b><span>00.3s</span></div>
+              <div class="v6-time-step active"><div class="num">5</div><b>Validate</b><span>00.5s</span></div>
+              <div class="v6-time-step"><div class="num">6</div><b>Authenticate</b><span>00.7s</span></div>
+              <div class="v6-time-step"><div class="num">7</div><b>Execute Transfer</b><span>00.9s</span></div>
+              <div class="v6-time-step"><div class="num">8</div><b>Update Database</b><span>01.2s</span></div>
+            </div>
+            <div class="v6-end-status">✔ Complete<br><span style="font-size:12px;color:#c6ffe3">01.4s</span></div>
+          </div>
+        </div>
+
+        <aside class="v6-right-stack">
+          <div class="v6-card v6-code-card">
+            <div class="v6-code-header"><div class="v6-code-title">FASTAPI CODE <span style="font-size:12px;color:#9dc4da">transfer.py</span></div><button class="v6-copy-btn" data-copy-target="samebank-code">Copy</button></div>
+            <pre id="samebank-code" class="v6-code"><span class="kw">@app.post</span>(<span class="str">"/api/v1/transfer"</span>)
+<span class="kw">async def</span> <span class="fn">transfer</span>(request: <span class="var">TransferRequest</span>,
+        user: <span class="var">User</span> = Depends(<span class="fn">get_current_user</span>)):
+    <span class="cm"># 1. Validate input</span>
+    <span class="fn">validate_transfer_request</span>(request)
+    <span class="cm"># 2. Check accounts and balance</span>
+    <span class="kw">assert</span> <span class="fn">same_bank</span>(request.from_account, request.to_account)
+    <span class="cm"># 3. Execute transfer (within a transaction)</span>
+    <span class="kw">async with</span> db.transaction():
+        <span class="kw">await</span> <span class="fn">debit</span>(request.from_account, request.amount)
+        <span class="kw">await</span> <span class="fn">credit</span>(request.to_account, request.amount)
+        <span class="kw">await</span> <span class="fn">create_transaction_record</span>(request, user.id)
+        <span class="kw">await</span> <span class="fn">create_ledger_entries</span>(request)
+    <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"success"</span>, <span class="str">"txn_id"</span>: txn_id}</pre>
+          </div>
+          <div class="v6-card v6-logs-card">
+            <div class="v6-box-header"><div class="v6-code-title">SYSTEM LOGS</div><div class="v6-mini-badge">All Levels</div></div>
+            <div class="v6-logs">
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Received POST /api/v1/transfer from user_id=5012</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Authenticated user: Anita (id=5012)</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Request validated: amount=500, to_account=1002</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Accounts found: from=1001, to=1002 (same bank)</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Balance check passed: ₹2,000 ≥ ₹500</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Transaction T100893 created</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Debited ₹500 from account 1001 (new balance: ₹1,500)</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Credited ₹500 to account 1002 (new balance: ₹1,200)</span></div>
+              <div class="v6-log info"><span>09:41:12</span><span class="lvl">[INFO]</span><span>Ledger entries written (2 rows)</span></div>
+              <div class="v6-log success"><span>09:41:12</span><span class="lvl">[SUCCESS]</span><span>Transfer completed successfully</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- OTHER BANK -->
+    <section class="v6-scene" id="scene-bank-other">
+      <div class="v6-card v6-header">
+        <div class="v6-topline">
+          <div class="v6-title-wrap">
+            <div class="v6-vbadge">V5</div>
+            <div>
+              <h1 class="v6-scene-title">V6 — Nova Bank to Other Bank</h1>
+              <p class="v6-scene-subtitle">See how a ₹500 transfer from Anita (Nova Bank) to Rahul (Other Bank) moves through real banking systems.</p>
+            </div>
+          </div>
+          <div class="v6-top-progress">
+            <div class="v6-progress-node active"><span class="n">1</span>Request</div>
+            <div class="v6-progress-node"><span class="n">2</span>Validate</div>
+            <div class="v6-progress-node"><span class="n">3</span>Send to Network</div>
+            <div class="v6-progress-node"><span class="n">4</span>Credit at Other Bank</div>
+            <div class="v6-progress-node"><span class="n">5</span>Acknowledge</div>
+            <div class="v6-progress-node"><span class="n">6</span>Respond</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v6-interbank-grid">
+        <aside class="v6-card v6-side-customer">
+          <div class="v6-section-head">Customer<br><span class="v6-small-muted">Anita initiates a transfer</span></div>
+          <div class="v6-phone" style="max-width:180px">
+            <div class="v6-phone-screen" style="min-height:410px;padding:14px 12px">
+              <div class="v6-mini-status"><span>9:41</span><span>◉ ◉</span></div>
+              <div class="v6-avatar-row"><div class="v6-avatar">👩</div><div><strong>Anita</strong><div class="v6-small-muted">Nova Bank Customer</div></div></div>
+              <div class="v6-field-card"><div class="v6-field-title">Transfer to other bank</div><div><strong>Rahul Singh</strong><div class="v6-small-muted">HDFC Bank<br>XXXX1234</div></div></div>
+              <div class="v6-field-card"><div class="v6-field-title">Amount</div><div class="v6-amount" style="font-size:22px">₹500</div></div>
+              <div class="v6-send-btn" style="font-size:18px;padding:14px 10px">Send Money</div>
+            </div>
+          </div>
+          <div class="v6-api-label" style="position:static;margin-top:14px">API Request<br><small>Transfer ₹500 to Rahul (Other Bank)</small></div>
+        </aside>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:grid;grid-template-columns:1.1fr .62fr 1fr;gap:12px">
+            <div class="v6-card v6-side-bank">
+              <div class="v6-bank-panel-title">🏦 NOVA BANK</div>
+              <div class="v6-small-muted">Our internal banking system (source bank)</div>
+              <div class="v6-bank-system-grid">
+                <div class="v6-mini-system"><div class="ico">↔️</div><b>API Router</b><span>Receives and routes request</span></div>
+                <div class="v6-mini-system"><div class="ico">🛡️</div><b>Validation Service</b><span>Checks auth, finds account</span></div>
+                <div class="v6-mini-system"><div class="ico">👤</div><b>Identity Service</b><span>Verifies customer & limits</span></div>
+                <div class="v6-mini-system"><div class="ico">📜</div><b>Rules Engine</b><span>Fraud, AML, risk checks</span></div>
+              </div>
+              <div class="v6-bank-body-split">
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Accounts Database (Nova Bank)</div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table"><thead><tr><th>Customer ID</th><th>Name</th><th>Account No</th><th>Balance</th></tr></thead><tbody>
+                      <tr><td>C10234</td><td>Anita Sharma</td><td>1234 5678 9012</td><td><span class="v6-chip-warn">₹24,500 → ₹24,000</span></td></tr>
+                      <tr><td>C55678</td><td>Vikram Mehta</td><td>9876 4321 0001</td><td>₹18,200</td></tr>
+                    </tbody></table>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🧾</span> Ledger Service</div><div class="v6-tile-body">Posts debit entry</div></div>
+                  <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">📒</span> Logs & Audit</div><div class="v6-tile-body">Records every step</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="v6-network-core">
+              <div class="v6-title-icon" style="width:54px;height:54px;font-size:28px;border-color:rgba(255,218,86,.5);background:rgba(255,218,86,.08)">🏛️</div>
+              <div class="v6-network-title">PAYMENT NETWORK</div>
+              <div class="v6-network-sub">Interbank payment rail<br>(e.g., RBI / NPCI)</div>
+              <div class="v6-message-tube">
+                <div class="v6-message-body"><b>₹500</b><span>From: NOVA BANK</span><span>To: HDFC BANK</span><span>Ref: NPCI123456789</span></div>
+                <div class="v6-arrow-large">➜</div>
+              </div>
+              <div class="v6-bullet-list">
+                <div>Routes to correct bank</div>
+                <div>Validates and delivers</div>
+                <div>Provides delivery confirmation</div>
+              </div>
+            </div>
+
+            <div class="v6-card v6-side-bank" style="box-shadow:0 0 0 2px rgba(180,120,255,.18), var(--v6-shadow)">
+              <div class="v6-bank-panel-title purple">🏦 RECEIVING BANK</div>
+              <div class="v6-small-muted">Rahul's bank (destination bank)</div>
+              <div class="v6-bank-system-grid">
+                <div class="v6-mini-system"><div class="ico">⬇️</div><b>Incoming Processor</b><span>Receives and validates message</span></div>
+                <div class="v6-mini-system"><div class="ico">🗄️</div><b>Credit Processing</b><span>Credits Rahul's account</span></div>
+                <div class="v6-mini-system"><div class="ico">🛡️</div><b>Acknowledgment Service</b><span>Sends confirmation back</span></div>
+                <div class="v6-mini-system"><div class="ico">📄</div><b>Reconciliation</b><span>Matches records with network</span></div>
+              </div>
+              <div class="v6-bank-body-split">
+                <div class="v6-table-card">
+                  <div class="v6-table-title">Accounts Database (Receiving Bank)</div>
+                  <div class="v6-table-wrap">
+                    <table class="v6-table"><thead><tr><th>Customer ID</th><th>Name</th><th>Account No</th><th>Balance</th></tr></thead><tbody>
+                      <tr><td>R77890</td><td>Rahul Singh</td><td>4321 1234 5678</td><td><span class="v6-chip-pos">₹3,200 → ₹3,700</span></td></tr>
+                      <tr><td>R44556</td><td>Priya Nair</td><td>8765 0000 1122</td><td>₹12,450</td></tr>
+                    </tbody></table>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px">
+                  <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🧾</span> Ledger Service</div><div class="v6-tile-body">Posts credit entry</div></div>
+                  <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">📒</span> Logs & Audit</div><div class="v6-tile-body">Records incoming and credit</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="v6-bottom-triptych">
+            <div class="v6-card v6-logs-wide">
+              <div class="v6-box-header"><div class="v6-code-title">LIVE EXECUTION LOGS</div><div class="v6-mini-badge">Real-time flow of messages and events</div></div>
+              <div class="v6-logs">
+                <div class="v6-log info"><span>14:30:12.101</span><span class="lvl">1</span><span>Customer request received — API /transfer (₹500 to Rahul)</span></div>
+                <div class="v6-log success"><span>14:30:12.203</span><span class="lvl">2</span><span>Auth passed — Token valid for Anita (C10234)</span></div>
+                <div class="v6-log info"><span>14:30:12.341</span><span class="lvl">3</span><span>Account found — Anita's account balance: ₹24,500</span></div>
+                <div class="v6-log success"><span>14:30:12.512</span><span class="lvl">3</span><span>Rules checks passed — AML, fraud, limits OK</span></div>
+                <div class="v6-log warn"><span>14:30:12.678</span><span class="lvl">4</span><span>Debit posted — Anita debited ₹500 → new balance ₹24,000</span></div>
+                <div class="v6-log info"><span>14:30:12.812</span><span class="lvl">4</span><span>Outbound message sent — To payment network (Ref: NPCI123456789)</span></div>
+                <div class="v6-log success"><span>14:30:13.245</span><span class="lvl">5</span><span>Message delivered — To receiving bank (HDFC)</span></div>
+                <div class="v6-log success"><span>14:30:13.612</span><span class="lvl">6</span><span>Beneficiary credited — Rahul's account credited ₹500</span></div>
+                <div class="v6-log success"><span>14:30:13.830</span><span class="lvl">6</span><span>Acknowledgment received — From receiving bank (Success)</span></div>
+                <div class="v6-log success"><span>14:30:13.945</span><span class="lvl">6</span><span>Response sent to customer — Transfer successful (Reference: NB742891)</span></div>
+              </div>
+            </div>
+
+            <div class="v6-card v6-inspector">
+              <div class="v6-box-header"><div class="v6-code-title">REQUEST / MESSAGE INSPECTOR</div><div style="display:flex;gap:8px"><button class="v6-copy-btn" data-copy-target="interbank-json">Copy</button><button class="v6-copy-btn" data-copy-target="interbank-curl">Copy cURL</button></div></div>
+              <div class="v6-inspector-tabs"><div class="v6-inspector-tab active">Customer API</div><div class="v6-inspector-tab">Interbank Message</div><div class="v6-inspector-tab">Ack Message</div><div class="v6-inspector-tab">Final Response</div></div>
+              <div class="v6-inspector-grid">
+                <pre id="interbank-json" class="v6-code" style="min-height:270px">{
+  "requestId": "NB742891",
+  "action": "transfer",
+  "amount": 500,
+  "currency": "INR",
+  "to": {
+    "name": "Rahul Singh",
+    "accountNumber": "432112345678",
+    "ifsc": "HDFC0001234",
+    "bankName": "HDFC Bank"
+  },
+  "customer": {
+    "customerId": "C10234",
+    "name": "Anita Sharma",
+    "channel": "mobile-app"
+  }
+}</pre>
+                <div>
+                  <pre id="interbank-curl" class="v6-curl">curl -X POST https://api.novabank.com/
+  -H "Authorization: Bearer &lt;token&gt;"
+  -H "Content-Type: application/json"
+  -d '{
+    "amount": 500,
+    "to": {
+      "accountNumber": "432112345678",
+      "ifsc": "HDFC0001234"
+    }
+  }'</pre>
+                  <div class="v6-kv-box" style="margin-top:10px">
+                    <div class="v6-kv-row"><strong>amount</strong><span>Transfer amount (₹500)</span></div>
+                    <div class="v6-kv-row"><strong>accountNumber</strong><span>Rahul’s account at receiving bank</span></div>
+                    <div class="v6-kv-row"><strong>ifsc</strong><span>Identifies the receiving bank</span></div>
+                    <div class="v6-kv-row"><strong>requestId</strong><span>Unique reference for tracking</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="v6-card v6-data-changes">
+              <div class="v6-box-header"><div class="v6-code-title">DATA CHANGES</div></div>
+              <div class="v6-table-card">
+                <div class="v6-table-title">Nova Bank — Anita's Account (Debit)</div>
+                <table class="v6-table"><thead><tr><th>Time</th><th>Description</th><th>Amount</th><th>Balance</th></tr></thead><tbody>
+                  <tr><td>14:30:12</td><td>Previous balance</td><td>–</td><td>₹24,500</td></tr>
+                  <tr><td>14:30:12</td><td>Transfer to Rahul (Ref: NB742891)</td><td><span class="v6-chip-neg">-₹500</span></td><td><strong>₹24,000</strong></td></tr>
+                </tbody></table>
+              </div>
+              <div class="v6-table-card" style="margin-top:10px">
+                <div class="v6-table-title">Receiving Bank — Rahul's Account (Credit)</div>
+                <table class="v6-table"><thead><tr><th>Time</th><th>Description</th><th>Amount</th><th>Balance</th></tr></thead><tbody>
+                  <tr><td>14:30:13</td><td>Previous balance</td><td>–</td><td>₹3,200</td></tr>
+                  <tr><td>14:30:13</td><td>Credit from Anita (Ref. NPCI123456789)</td><td><span class="v6-chip-pos">+₹500</span></td><td><strong>₹3,700</strong></td></tr>
+                </tbody></table>
+              </div>
+            </div>
+          </div>
+
+          <div class="v6-bottom-info">
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">💡</span> Why create this request?</div><div class="v6-tile-body">It tells Nova Bank to move ₹500 from Anita to Rahul. The request includes the beneficiary’s account and IFSC so the money can reach the correct bank through the payment network.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🏦</span> Why separate banks?</div><div class="v6-tile-body">Each bank manages its own customers’ accounts and data. A trusted payment network connects banks and securely routes payment messages between them.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">✔</span> What is acknowledged?</div><div class="v6-tile-body">The receiving bank confirms successful credit of funds to Rahul’s account. This acknowledgment is sent back through the network to Nova Bank, completing the transfer.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">⚠</span> What if receiving bank fails?</div><div class="v6-tile-body">Nova Bank will not lose the money. The transfer is retried or reversed based on network rules. The debit may be held in a pending state and automatically reconciled.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORE -->
+    <section class="v6-scene" id="scene-store">
+      <div class="v6-card v6-header">
+        <div class="v6-topline">
+          <div class="v6-title-wrap">
+            <div class="v6-vbadge">V5</div>
+            <div>
+              <h1 class="v6-scene-title">V6 — Inside the Store</h1>
+              <p class="v6-scene-subtitle">Follow a real purchase from the store's point of view. See how each service works, the data that changes, and why.</p>
+            </div>
+          </div>
+          <div class="v6-pills"><div class="v6-pill green">READY</div><div class="v6-pill outline">Interactive learning mode — click any step or component</div></div>
+        </div>
+      </div>
+
+      <div class="v6-store-grid">
+        <div class="v6-card v6-store-left">
+          <div>
+            <div class="v6-section-head">1. A Customer Buys Sneakers</div>
+            <div class="v6-phone" style="max-width:200px">
+              <div class="v6-phone-screen" style="min-height:430px;padding:14px 14px">
+                <div class="v6-mini-status"><span>9:41</span><span>◉ ◉</span></div>
+                <div style="height:115px;border-radius:18px;background:linear-gradient(135deg,#13345b,#0b1930);display:grid;place-items:center;font-size:72px">👟</div>
+                <div><strong style="font-size:24px">Air Runner Pro</strong><div style="font-size:34px;font-weight:900;margin-top:6px">$129.00</div></div>
+                <div class="v6-field-card"><div class="v6-field-title">Size</div><div>9 (US)</div></div>
+                <div class="v6-field-card"><div class="v6-field-title">Quantity</div><div>1</div></div>
+                <div class="v6-send-btn" style="background:linear-gradient(90deg,#ffd84a,#ffcf1e);color:#242200">🛒 Buy Now</div>
+              </div>
+            </div>
+          </div>
+          <div class="v6-rocket-box">
+            <div class="v6-section-head">POST /checkout</div>
+            <div class="rocket">🚀</div>
+            <div class="line"></div>
+            <div class="v6-small-muted" style="position:absolute;left:18px;top:140px;max-width:220px">The request leaves the shopper app and enters the store’s checkout backend.</div>
+          </div>
+        </div>
+
+        <div class="v6-card v6-store-right">
+          <div class="v6-process-banner">
+            <div class="v6-section-head">2. Inside the Store — Request Flow</div>
+            <div class="v6-small-muted">Watch the request travel through the store's systems. Each service performs a job, updates data, or triggers an event.</div>
+            <div class="v6-flow-row">
+              <div class="v6-flow-node"><div class="bigico">🌐</div><div class="num">1</div><b>Web Server</b><span>Receives HTTP request</span></div>
+              <div class="v6-flow-node"><div class="bigico">🗺️</div><div class="num">2</div><b>Router</b><span>Routes to checkout service</span></div>
+              <div class="v6-flow-node"><div class="bigico">🧰</div><div class="num">3</div><b>Middleware</b><span>Auth, CORS, logging, etc.</span></div>
+              <div class="v6-flow-node"><div class="bigico">☑️</div><div class="num">4</div><b>Validation</b><span>Check product quantity, user</span></div>
+              <div class="v6-flow-node"><div class="bigico">👤</div><div class="num">5</div><b>Identity</b><span>Verify user session / token</span></div>
+              <div class="v6-flow-node"><div class="bigico">📄</div><div class="num">6</div><b>Checkout Rules</b><span>Apply business rules (limits, etc.)</span></div>
+              <div class="v6-flow-node"><div class="bigico">🗄️</div><div class="num">7</div><b>Inventory + Orders</b><span>Check & reserve stock, create order</span></div>
+              <div class="v6-flow-node"><div class="bigico">💳</div><div class="num">8</div><b>Payment Provider</b><span>Authorize payment</span></div>
+              <div class="v6-flow-node"><div class="bigico">📦</div><div class="num">9</div><b>Warehouse / Fulfillment</b><span>Send fulfillment event</span></div>
+            </div>
+          </div>
+
+          <div class="v6-data-row-3">
+            <div class="v6-table-card">
+              <div class="v6-table-title">INVENTORY <small>(products)</small></div>
+              <table class="v6-table"><thead><tr><th>ID</th><th>Product</th><th>Size</th><th>Stock</th><th>Status</th></tr></thead><tbody>
+                <tr><td>P1001</td><td>Air Runner Pro</td><td>9</td><td><strong>12 → 11</strong></td><td><span class="v6-chip-warn">Reserved</span></td></tr>
+                <tr><td>P1002</td><td>City Sneaker</td><td>9</td><td>8</td><td><span class="v6-chip-neutral">Available</span></td></tr>
+                <tr><td>P1003</td><td>Trail Blaze</td><td>10</td><td>0</td><td><span class="v6-chip-neg">Out of stock</span></td></tr>
+              </tbody></table>
+            </div>
+            <div class="v6-table-card">
+              <div class="v6-table-title">ORDERS <small>(orders)</small></div>
+              <table class="v6-table"><thead><tr><th>ID</th><th>User</th><th>Product</th><th>Qty</th><th>Status</th><th>Created At</th></tr></thead><tbody>
+                <tr><td>#1032</td><td>u_458</td><td>Air Runner Pro</td><td>1</td><td><span class="v6-chip-pos">Processing</span></td><td>10:24:17</td></tr>
+                <tr><td>#1031</td><td>u_237</td><td>City Sneaker</td><td>1</td><td>Shipped</td><td>10:12:03</td></tr>
+                <tr><td>#1030</td><td>u_991</td><td>Trail Blaze</td><td>2</td><td>Delivered</td><td>09:47:21</td></tr>
+              </tbody></table>
+            </div>
+            <div class="v6-table-card">
+              <div class="v6-table-title">PAYMENTS <small>(transactions)</small></div>
+              <table class="v6-table"><thead><tr><th>ID</th><th>Order ID</th><th>Provider</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+                <tr><td>pay_7712</td><td>#1032</td><td>Stripe</td><td>$129.00</td><td><span class="v6-chip-pos">Authorized</span></td></tr>
+                <tr><td>pay_7711</td><td>#1031</td><td>Stripe</td><td>$89.00</td><td><span class="v6-chip-neutral">Captured</span></td></tr>
+                <tr><td>pay_7710</td><td>#1030</td><td>Stripe</td><td>$198.00</td><td><span class="v6-chip-neutral">Captured</span></td></tr>
+              </tbody></table>
+            </div>
+          </div>
+
+          <div class="v6-why-row-4">
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">📄</span> Why POST /checkout?</div><div class="v6-tile-body">We use POST because we're creating something (an order) and it changes data on the server (not just reading).</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🛡️</span> Why validate quantity?</div><div class="v6-tile-body">We must check the product exists and the requested quantity is available to prevent overselling and errors.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">💳</span> Why call payment provider?</div><div class="v6-tile-body">We authorize the payment with a trusted provider (e.g., Stripe) to securely charge the customer's payment method.</div></div>
+            <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🗄️</span> Why reserve stock first?</div><div class="v6-tile-body">We reserve the item before charging to avoid taking payment for an item we can't fulfill.</div></div>
+          </div>
+
+          <div class="v6-bottom-store">
+            <div class="v6-card v6-code-card">
+              <div class="v6-code-header"><div class="v6-code-title">FASTAPI CHECKOUT ENDPOINT</div><div class="v6-code-badges"><span class="v6-badge-simple">python</span></div></div>
+              <pre id="store-code" class="v6-code"><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, HTTPException
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+app = FastAPI()
+
+<span class="kw">class</span> CheckoutRequest(BaseModel):
+    product_id: str
+    quantity: int
+    payment_token: str
+
+<span class="kw">@app.post</span>(<span class="str">"/checkout"</span>)
+<span class="kw">async def</span> <span class="fn">checkout</span>(req: CheckoutRequest):
+    <span class="cm"># 1. validate product and quantity</span>
+    <span class="cm"># 2. reserve stock</span>
+    <span class="cm"># 3. authorize payment</span>
+    <span class="cm"># 4. create order</span>
+    <span class="cm"># 5. publish fulfillment event</span>
+    <span class="kw">return</span> {<span class="str">"order_id"</span>: <span class="str">"#1032"</span>, <span class="str">"status"</span>: <span class="str">"processing"</span>}</pre>
+            </div>
+            <div class="v6-card v6-logs-card">
+              <div class="v6-box-header"><div class="v6-code-title">EVENT BUS <span style="font-size:14px;color:#9dc4da">(background events)</span></div><div class="v6-mini-badge">Events flow asynchronously</div></div>
+              <div class="v6-event-row">
+                <div class="v6-event-chip">OrderCreated<br><strong>#1032</strong></div>
+                <div class="v6-event-chip">PaymentAuthorized<br><strong>pay_7712</strong></div>
+                <div class="v6-event-chip">InventoryReserved<br><strong>P1001 (qty:1)</strong></div>
+                <div class="v6-event-chip">FulfillmentRequested<br><strong>#1032</strong></div>
+              </div>
+              <div class="v6-box-header"><div class="v6-code-title">LOGS <span style="font-size:14px;color:#9dc4da">(real-time)</span></div><div style="display:flex;gap:8px"><span class="v6-mini-badge">Info</span><span class="v6-mini-badge">Success</span><span class="v6-mini-badge">Warning</span><span class="v6-mini-badge">Error</span></div></div>
+              <div class="v6-logs">
+                <div class="v6-log info"><span>10:24:17</span><span class="lvl">INFO</span><span>Received POST /checkout request (user: u_458)</span></div>
+                <div class="v6-log info"><span>10:24:17</span><span class="lvl">INFO</span><span>Validating product P1001, quantity: 1</span></div>
+                <div class="v6-log success"><span>10:24:17</span><span class="lvl">SUCCESS</span><span>Stock reserved: P1001 (12 → 11)</span></div>
+                <div class="v6-log info"><span>10:24:18</span><span class="lvl">INFO</span><span>Payment request sent to Stripe (pay_7712)</span></div>
+                <div class="v6-log success"><span>10:24:18</span><span class="lvl">SUCCESS</span><span>Payment authorized: $129.00 (pay_7712)</span></div>
+                <div class="v6-log success"><span>10:24:18</span><span class="lvl">SUCCESS</span><span>Order created: #1032</span></div>
+                <div class="v6-log info"><span>10:24:18</span><span class="lvl">INFO</span><span>Fulfillment event published: OrderCreated #1032</span></div>
+              </div>
+            </div>
+            <div class="v6-card v6-info-card">
+              <div class="v6-box-header"><div class="v6-code-title">COMPARE RUNS</div></div>
+              <div class="v6-compare-cols">
+                <div class="v6-compare-box success"><h4>✔ Successful purchase</h4><ul><li>Request received</li><li>Validate product & quantity</li><li>Reserve stock (12 → 11)</li><li>Authorize payment</li><li>Create order (#1032)</li><li>Publish fulfillment event</li></ul><div class="result">Result: Order processing<br><span class="v6-small-muted">Payment authorized, stock reserved, warehouse notified.</span></div></div>
+                <div class="v6-compare-box error"><h4>✖ Out of stock (error)</h4><ul><li>Request received</li><li>Validate product & quantity</li><li>Out of stock (stock = 0)</li><li>Payment not called</li><li>No order created</li><li>No fulfillment event</li></ul><div class="result">Result: Error response<br><span class="v6-small-muted">Item is out of stock. Please choose a different size.</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESTAURANT -->
+    <section class="v6-scene" id="scene-restaurant">
+      <div class="v6-card v6-header">
+        <div class="v6-topline">
+          <div class="v6-title-wrap">
+            <div class="v6-logo-restaurant">👨‍🍳</div>
+            <div>
+              <h1 class="v6-scene-title">V6 — Inside the Restaurant</h1>
+              <p class="v6-scene-subtitle">A customer places a biryani order. See how the restaurant's systems process it, from request to kitchen to delivery.</p>
+            </div>
+          </div>
+          <div class="v6-pills"><div class="v6-pill outline">INTERACTIVE LEARNING<br><span style="font-size:12px;color:#a5d3eb;font-weight:700">Follow the request • Explore the data • See the full stack</span></div><div class="v6-pill green">READY</div></div>
+        </div>
+      </div>
+
+      <div class="v6-restaurant-grid">
+        <aside class="v6-card v6-request-panel">
+          <div class="v6-section-head">1. Customer Places Order</div>
+          <div class="v6-request-flex">
+            <div class="v6-phone" style="max-width:180px">
+              <div class="v6-phone-screen" style="min-height:430px;padding:14px 12px">
+                <div class="v6-mini-status"><span>9:41</span><span>◉ ◉</span></div>
+                <div class="v6-app-brand"><span style="font-size:18px">🍽️</span> TastyBites</div>
+                <div style="height:110px;border-radius:18px;background:linear-gradient(135deg,#402611,#1a1209);display:grid;place-items:center;font-size:68px">🍛</div>
+                <div><strong style="font-size:24px">Chicken Biryani</strong><div style="font-size:28px;font-weight:900;margin-top:4px">₹280</div></div>
+                <div class="v6-avatar-row" style="justify-content:space-between"><span>➖</span><strong>1</strong><span>➕</span></div>
+                <div class="v6-send-btn" style="background:linear-gradient(90deg,#ffcf47,#ffb20f);color:#442b00;font-size:20px">Place Order</div>
+              </div>
+            </div>
+            <div class="v6-json-box">
+              <div class="v6-api-tag v6-api-label" style="position:static;display:inline-block;padding:8px 14px;margin-bottom:14px">POST /orders</div>
+              <pre>{
+  "item_id": "biryani_1",
+  "address": "...",
+  "payment": "cod"
+}
+
+A request travels to
+the restaurant's backend
+with order details.</pre>
+            </div>
+          </div>
+        </aside>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="v6-card v6-rest-flow">
+            <div class="v6-section-head">2. Restaurant Backend — Request Flow</div>
+            <div class="v6-rest-topflow">
+              <div class="v6-rest-node"><div class="bigico">🖥️</div><b>Web Server</b><span>Receives HTTP request</span></div>
+              <div class="v6-rest-node"><div class="bigico">🔀</div><b>Router</b><span>Routes to /order endpoint</span></div>
+              <div class="v6-rest-node"><div class="bigico">🛡️</div><b>Identity</b><span>Authenticates customer</span></div>
+              <div class="v6-rest-node"><div class="bigico">📝</div><b>Validation</b><span>Checks menu, address, business rules</span></div>
+              <div class="v6-rest-node"><div class="bigico">⚙️</div><b>Order Rules</b><span>Checks restaurant open, item available, delivery area</span></div>
+              <div class="v6-rest-node"><div class="bigico">🗄️</div><b>Menu + Orders DB</b><span>Reads menu, creates order, saves to DB</span></div>
+              <div class="v6-side-events">
+                <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">👩‍🍳</span> Kitchen Queue</div><div class="v6-tile-body">Publishes event for kitchen</div></div>
+                <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🔔</span> Delivery / Notifications</div><div class="v6-tile-body">Sends to delivery system and notifies customer</div></div>
+              </div>
+            </div>
+            <div class="v6-info-row">
+              <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">❔</span> Why POST /orders?</div><div class="v6-tile-body">Creates a new order (it changes server data), so we use POST.</div></div>
+              <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">🛡️</span> Why authentication?</div><div class="v6-tile-body">We identify the customer to link the order and delivery address.</div></div>
+              <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">☑️</span> What happens in validation?</div><div class="v6-tile-body">We check item exists, is available, address is serviceable, and restaurant is open.</div></div>
+              <div class="v6-tile"><div class="v6-tile-title"><span class="v6-title-icon">⚡</span> Why publish a kitchen event?</div><div class="v6-tile-body">The kitchen needs a real-time ticket to start preparing the food.</div></div>
+            </div>
+          </div>
+
+          <div class="v6-rest-middle">
+            <div class="v6-table-card">
+              <div class="v6-table-title">3 MENU <small>(from restaurant DB)</small></div>
+              <table class="v6-table"><thead><tr><th>ID</th><th>Item</th><th>Price</th><th>Available</th></tr></thead><tbody>
+                <tr><td>biryani_1</td><td>Chicken Biryani</td><td>₹280</td><td><span class="v6-chip-pos">Yes</span></td></tr>
+                <tr><td>biryani_2</td><td>Mutton Biryani</td><td>₹320</td><td><span class="v6-chip-pos">Yes</span></td></tr>
+                <tr><td>paneer_1</td><td>Paneer Biryani</td><td>₹260</td><td><span class="v6-chip-pos">Yes</span></td></tr>
+                <tr><td>drink_1</td><td>Coke</td><td>₹50</td><td><span class="v6-chip-pos">Yes</span></td></tr>
+                <tr><td>raita_1</td><td>Raita</td><td>₹40</td><td><span class="v6-chip-pos">Yes</span></td></tr>
+              </tbody></table>
+            </div>
+            <div class="v6-table-card">
+              <div class="v6-table-title">4 ORDERS <small>(restaurant DB)</small></div>
+              <table class="v6-table"><thead><tr><th>ID</th><th>Customer</th><th>Items</th><th>Status</th><th>Created At</th></tr></thead><tbody>
+                <tr><td>#1032</td><td>Priya S.</td><td>1 × Chicken Biryani</td><td><span class="v6-chip-warn">Placed</span></td><td>12:01:23</td></tr>
+                <tr><td>#1031</td><td>Rahul K.</td><td>2 × Mutton Biryani</td><td><span class="v6-chip-pos">Delivered</span></td><td>11:58:11</td></tr>
+                <tr><td>#1030</td><td>Aman P.</td><td>1 × Paneer Biryani</td><td><span class="v6-chip-pos">Delivered</span></td><td>11:42:05</td></tr>
+                <tr><td>#1029</td><td>Neha M.</td><td>1 × Chicken Biryani</td><td><span class="v6-chip-neg">Cancelled</span></td><td>11:30:21</td></tr>
+                <tr><td>#1028</td><td>Karan D.</td><td>3 × Chicken Biryani</td><td><span class="v6-chip-pos">Delivered</span></td><td>11:12:33</td></tr>
+              </tbody></table>
+            </div>
+            <div class="v6-table-card">
+              <div class="v6-table-title">5 KITCHEN QUEUE <small>(real-time)</small></div>
+              <div class="v6-queue-list">
+                <div class="v6-queue-ticket active"><div><strong>#1032</strong><div class="v6-small-muted">Chicken Biryani<br>1 × Chicken Biryani</div></div><div class="v6-chip-neg">🔥 12:01</div></div>
+                <div class="v6-queue-ticket"><div><strong>#1031</strong><div class="v6-small-muted">Mutton Biryani<br>2 × Mutton Biryani</div></div><div class="v6-chip-neutral">11:58</div></div>
+                <div class="v6-queue-ticket"><div><strong>#1030</strong><div class="v6-small-muted">Paneer Biryani<br>1 × Paneer Biryani</div></div><div class="v6-chip-neutral">11:42</div></div>
+              </div>
+            </div>
+            <div class="v6-table-card">
+              <div class="v6-table-title">6 ORDER STATUS HISTORY <small>(real-time)</small></div>
+              <div class="v6-status-timeline">
+                <div class="v6-status-item"><span class="v6-status-dot"></span><div><b>Placed</b><span>Order received from customer app</span></div><time>12:01</time></div>
+                <div class="v6-status-item"><span class="v6-status-dot" style="background:#24e8c2"></span><div><b>Accepted</b><span>Restaurant accepted the order</span></div><time>12:02</time></div>
+                <div class="v6-status-item"><span class="v6-status-dot" style="background:#36d6ff"></span><div><b>Preparing</b><span>Kitchen started preparing</span></div><time>12:05</time></div>
+                <div class="v6-status-item"><span class="v6-status-dot" style="background:#b478ff"></span><div><b>Ready</b><span>Food is ready for pickup</span></div><time>12:18</time></div>
+                <div class="v6-status-item"><span class="v6-status-dot" style="background:#5de8a9"></span><div><b>Out for delivery</b><span>Assigned to delivery partner</span></div><time>12:20</time></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="v6-rest-bottom">
+            <div class="v6-card v6-code-card">
+              <div class="v6-code-header"><div class="v6-code-title">7 FASTAPI CODE — POST /orders</div><div class="v6-code-badges"><span class="v6-badge-simple">Python</span><span class="v6-badge-simple">FastAPI</span><button class="v6-copy-btn" data-copy-target="restaurant-code">Copy</button></div></div>
+              <pre id="restaurant-code" class="v6-code"><span class="kw">@app.post</span>(<span class="str">"/orders"</span>, response_model=OrderResponse)
+<span class="kw">async def</span> <span class="fn">create_order</span>(order: OrderCreate,
+    user: User = Depends(<span class="fn">get_current_user</span>)):
+    <span class="cm"># 1. validate items and address</span>
+    <span class="kw">await</span> <span class="fn">validate_order</span>(order, user)
+    <span class="cm"># 2. create order in DB</span>
+    db_order = <span class="kw">await</span> order_service.<span class="fn">create_order</span>(order, user.id)
+    <span class="cm"># 3. publish kitchen event</span>
+    <span class="kw">await</span> kitchen_queue.<span class="fn">publish_new_order</span>(db_order)
+    <span class="cm"># 4. send notifications</span>
+    <span class="kw">await</span> <span class="fn">notify_customer_and_delivery</span>(db_order)
+    <span class="kw">return</span> OrderResponse.from_orm(db_order)</pre>
+            </div>
+            <div class="v6-card v6-logs-card">
+              <div class="v6-box-header"><div class="v6-code-title">8 LOGS <span style="font-size:14px;color:#9dc4da">(real-time)</span></div><div class="v6-mini-badge">Live</div></div>
+              <div class="v6-logs">
+                <div class="v6-log info"><span>12:01:23</span><span class="lvl">[WEB]</span><span>POST /orders 200 145ms</span></div>
+                <div class="v6-log info"><span>12:01:23</span><span class="lvl">[AUTH]</span><span>Customer 8421 authenticated</span></div>
+                <div class="v6-log info"><span>12:01:23</span><span class="lvl">[VALIDATION]</span><span>Menu item biryani_1 available</span></div>
+                <div class="v6-log info"><span>12:01:23</span><span class="lvl">[VALIDATION]</span><span>Address serviceable (3.2 km)</span></div>
+                <div class="v6-log success"><span>12:01:23</span><span class="lvl">[ORDER]</span><span>Created order #1032 for user 8421</span></div>
+                <div class="v6-log success"><span>12:01:23</span><span class="lvl">[DB]</span><span>Inserted into orders (id: 1032)</span></div>
+                <div class="v6-log success"><span>12:01:24</span><span class="lvl">[EVENT]</span><span>Published kitchen.new_order (id:1032)</span></div>
+                <div class="v6-log warn"><span>12:01:24</span><span class="lvl">[KITCHEN]</span><span>Ticket received in kitchen queue</span></div>
+                <div class="v6-log info"><span>12:01:24</span><span class="lvl">[NOTIFY]</span><span>Notified customer (order placed)</span></div>
+                <div class="v6-log info"><span>12:01:24</span><span class="lvl">[DELIVERY]</span><span>Requested delivery partner</span></div>
+              </div>
+            </div>
+            <div class="v6-card v6-info-card">
+              <div class="v6-box-header"><div class="v6-code-title">9 SUCCESS vs FAILURE</div></div>
+              <div class="v6-success-failure">
+                <div class="v6-compare-box success"><h4>SUCCESS — Restaurant Open</h4><ul><li>Restaurant is open (11:00 – 23:00)</li><li>Item is available (Chicken Biryani)</li><li>Address is serviceable (3.2 km away)</li><li>Order created successfully</li><li>Kitchen notified</li><li>Customer & delivery notified</li></ul><div class="result">🎉 Order #1032 is in progress!</div></div>
+                <div class="v6-compare-box error"><h4>FAILURE — Restaurant Closed</h4><ul><li>Restaurant is closed (Currently 01:30)</li><li>Cannot accept new orders</li><li>No order is created</li><li>Kitchen is not notified</li><li>Customer receives an error</li></ul><div class="result">Cannot place order<br><span class="v6-small-muted">Restaurant is currently closed. We are open from 11:00 AM to 11:00 PM.</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/workflow-v6.js"></script>
+  <script src="assets/js/workflow-v6-live.js"></script>
+</body>
+</html>
